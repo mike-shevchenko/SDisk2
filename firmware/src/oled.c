@@ -180,13 +180,15 @@ void lcd_underline() {ssd1306_underline();}
 void lcd_overline() {ssd1306_overline();}
 void logo()
 {
-	for(int i = 0;i<5;i++)
+	// NOTE: The new values correspond to the "AGAT" logo (agatlogo.bmp), while the commented out
+	// values correspond to the original Apple logo.
+	for(int i = 0;i<3/*was 5*/;i++)
 	{
-		lcd_gotoxy(25,i);
+		lcd_gotoxy(10/*was 25*/,i);
 		
-		for(int j = 0; j<74; j++)
+		for(int j = 0; j<100/*was 74*/; j++)
 		{
-			unsigned char D = (unsigned char)pgm_read_byte(&LOGO[i*74+j]);
+			unsigned char D = (unsigned char)pgm_read_byte(&LOGO[i*100/*was 74*/+j]);
 			ssd1306_data(D);
 		}
 	}
